@@ -125,6 +125,8 @@ Common issues and solutions:
 4. Push to the branch
 5. Create a Pull Request
 
+More will be added soon.
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
