@@ -1,0 +1,9 @@
+# Build directory and all its contents
+build
+build/
+build/**/*
+build/*.*
+<<<<<<< HEAD
+build/*
+=======
+>>>>>>> e4e80fedd55e8b674578c440294bfd06d73c0b07

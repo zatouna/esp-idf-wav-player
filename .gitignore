@@ -1,0 +1,6 @@
+# Build directory and all its contents
+build
+build/
+build/**/*
+build/*.*
+build/*
