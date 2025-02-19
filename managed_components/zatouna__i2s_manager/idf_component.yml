@@ -1,0 +1,8 @@
+dependencies:
+  idf:
+    version: '>=5.0.0'
+description: I2S manager component for ESP32
+targets:
+- esp32s3
+url: https://github.com/zatouna/i2s_manager
+version: 1.0.0

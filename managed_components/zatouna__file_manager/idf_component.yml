@@ -1,0 +1,8 @@
+dependencies:
+  idf:
+    version: '>=5.0.0'
+description: File manager component for ESP32 SPIFFS
+targets:
+- esp32s3
+url: https://github.com/zatouna/file_manager
+version: 1.0.0

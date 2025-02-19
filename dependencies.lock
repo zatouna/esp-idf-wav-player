@@ -1,0 +1,49 @@
+dependencies:
+  idf:
+    source:
+      type: idf
+    version: 5.5.0
+  zatouna/file_manager:
+    component_hash: 35996e9a2ace0b7d9749936846e0ed87c7b9fdc1a67dc86e6d6a1d74b5d83f8d
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0.0'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    targets:
+    - esp32s3
+    version: 1.0.0
+  zatouna/i2s_manager:
+    component_hash: 85ccca8898c3619e35cd5f6a5ba9b9a4334de79ab1b0927aa278668aa6d43a93
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0.0'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    targets:
+    - esp32s3
+    version: 1.0.0
+  zatouna/wav_player:
+    component_hash: d080a078a88677fe25c540380fedd2a6391a2f34df70f1afa693ca1186562269
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0.0'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    targets:
+    - esp32s3
+    version: 1.0.1
+direct_dependencies:
+- idf
+- zatouna/file_manager
+- zatouna/i2s_manager
+- zatouna/wav_player
+manifest_hash: 099069f38bd880f4d29ef777117d0c4f9f278955959d9219c593a75990003e81
+target: esp32s3
+version: 2.0.0
