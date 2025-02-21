@@ -34,6 +34,17 @@ static esp_err_t play_wav_file(const char* filepath, void* user_data) {
     return wav_player_play_file(filepath, audio_write_cb, user_data);
 }
 
+void audio_task(void* pvParameters) {
+    i2s_chan_handle_t tx_handle = (i2s_chan_handle_t)pvParameters;
+    
+    esp_err_t ret = file_manager_process_wav_files(play_wav_file, tx_handle);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Error processing WAV files");
+    }
+    
+    vTaskDelete(NULL);
+}
+
 void app_main(void)
 {
     ESP_ERROR_CHECK(esp_task_wdt_add(NULL));
@@ -72,17 +83,8 @@ void app_main(void)
         return;
     }
 
-    // Process WAV files
-    ret = file_manager_process_wav_files(play_wav_file, tx_handle);
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Error processing WAV files");
-    }
-
-    // Cleanup
-    i2s_channel_disable(tx_handle);
-    i2s_del_channel(tx_handle);
-    file_manager_deinit();
-    esp_task_wdt_delete(NULL);
+    xTaskCreate(audio_task, "audio_task", STACK_SIZE, tx_handle, 5, NULL);
     
-    ESP_LOGI(TAG, "Playback complete");
+    // Main task can continue with other work or end
+    esp_task_wdt_delete(NULL);
 }
